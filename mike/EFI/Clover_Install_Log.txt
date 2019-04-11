@@ -1,12 +1,12 @@
 
-Clover EFI installer log - Mon Feb  4 19:47:19 PST 2019
-Installer version: v2.4k r4871 EFI bootloader
+Clover EFI installer log - Sat Apr  6 09:07:21 CDT 2019
+Installer version: v2.4k r4910 EFI bootloader
 ======================================================
 /dev/disk0 (internal):
    #:                       TYPE NAME                    SIZE       IDENTIFIER
    0:      GUID_partition_scheme                         1.0 TB     disk0
    1:         Microsoft Reserved                         16.8 MB    disk0s1
-   2:       Microsoft Basic Data                         1.0 TB     disk0s2
+   2:       Microsoft Basic Data Windows 10              1.0 TB     disk0s2
    3:           Windows Recovery                         487.6 MB   disk0s3
 
 /dev/disk1 (internal):
@@ -19,27 +19,26 @@ Installer version: v2.4k r4871 EFI bootloader
    #:                       TYPE NAME                    SIZE       IDENTIFIER
    0:      APFS Container Scheme -                      +499.9 GB   disk2
                                  Physical Store disk1s2
-   1:                APFS Volume Hackintsh HD            19.0 GB    disk2s1
+   1:                APFS Volume Hackintosh HD           73.5 GB    disk2s1
    2:                APFS Volume Preboot                 45.1 MB    disk2s2
-   3:                APFS Volume Recovery                517.0 MB   disk2s3
+   3:                APFS Volume Recovery                522.7 MB   disk2s3
    4:                APFS Volume VM                      2.1 GB     disk2s4
 
-/dev/disk3 (external, physical):
-   #:                       TYPE NAME                    SIZE       IDENTIFIER
-   0:      GUID_partition_scheme                        *15.5 GB    disk3
-   1:                        EFI EFI                     209.7 MB   disk3s1
-   2:                  Apple_HFS Install macOS Mojave    15.2 GB    disk3s2
-
-Target volume /Volumes/Hackintsh HD on disk2 is APFS on physical store disk1s2
+Target volume /Volumes/Hackintosh HD on disk2 is APFS on physical store disk1s2
 ======================================================
 Backing up EFI files
 
-Backing up /Volumes/Hackintsh HD/EFIROOTDIR/EFI folder to /Volumes/Hackintsh HD/EFI-Backups/r4844/2019-02-04-19h47/EFI
+Backing up /Volumes/Hackintosh HD/EFIROOTDIR/EFI folder to /Volumes/Hackintosh HD/EFI-Backups/r4871/2019-04-06-09h07/EFI
 ======================================================
 Installing BootSectors/BootLoader
 
 Stage 0 - Don't write any of boot0af, boot0md, boot0ss to /
 Stage 1 - Don't write any of boot1h2, boot1f32alt, boot1xalt to /
+======================================================
+Installing RC Scripts
+
+Installing RC scripts on target volume '/'
+
 
 ======================================================
 =========== Clover EFI Installation Finish ===========

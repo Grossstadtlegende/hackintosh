@@ -23,20 +23,6 @@
 			<array>
 				<dict>
 					<key>Comment</key>
-					<string>change SAT0 to SATA</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					U0FUMA==
-					</data>
-					<key>Replace</key>
-					<data>
-					U0FUQQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
 					<string>change XHCI to XHC</string>
 					<key>Disabled</key>
 					<false/>
@@ -65,35 +51,21 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change EHC1 -&gt; EH01</string>
+					<string>change SAT0 to SATA</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
 					<data>
-					RUhDMQ==
+					U0FUMA==
 					</data>
 					<key>Replace</key>
 					<data>
-					RUgwMQ==
+					U0FUQQ==
 					</data>
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>change EHC2 -&gt; EH02</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					RUhDMg==
-					</data>
-					<key>Replace</key>
-					<data>
-					RUgwMg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>Rename GFX0 to IGPU</string>
+					<string>change GFX0 to IGPU</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -107,7 +79,7 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Fix AsRock Z390 BIOS DSDT Device(RTC) bug</string>
+					<string>Fix AsRock Z390 BIOS DSDT Device(RTC) bug. If BIOS &gt; 1.2</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -117,20 +89,6 @@
 					<key>Replace</key>
 					<data>
 					oAqRCv8L//8=
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>change HDAS -&gt; HDEF</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					SERBUw==
-					</data>
-					<key>Replace</key>
-					<data>
-					SERFRg==
 					</data>
 				</dict>
 			</array>
@@ -170,26 +128,17 @@
 		<key>XMPDetection</key>
 		<string>Yes</string>
 	</dict>
-	<key>CPU</key>
-	<dict>
-		<key>Type</key>
-		<string>Unknown</string>
-		<key>UseARTFrequency</key>
-		<false/>
-	</dict>
 	<key>Devices</key>
 	<dict>
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
-			<string>No</string>
+			<integer>1</integer>
+			<key>ResetHDA</key>
+			<true/>
 		</dict>
-		<key>SetIntelBacklight</key>
-		<false/>
 		<key>USB</key>
 		<dict>
-			<key>AddClockID</key>
-			<false/>
 			<key>FixOwnership</key>
 			<true/>
 		</dict>
@@ -200,20 +149,17 @@
 		<string>Dark</string>
 		<key>Hide</key>
 		<array>
-			<string>Preboot</string>
-			<string>Recovery</string>
+			<string>recovery</string>
+			<string>preboot</string>
+			<string>Windows</string>
+			<string>\EFI\BOOT\BOOT64.EFI</string>
 		</array>
 		<key>Scan</key>
-		<dict>
-			<key>Entries</key>
-			<true/>
-			<key>Legacy</key>
-			<false/>
-			<key>Tool</key>
-			<true/>
-		</dict>
+		<true/>
+		<key>ScreenResolution</key>
+		<string>2560x2048</string>
 		<key>Theme</key>
-		<string>random</string>
+		<string>MaterialDark</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -239,9 +185,69 @@
 		<array>
 			<dict>
 				<key>Comment</key>
+				<string>Port limit increase</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				g710////EA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.12.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				g710////Gw==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Port limit increase (RehabMan)</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				g32IDw+DpwQAAA==
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.13.x</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				g32ID5CQkJCQkA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>change 15 port limit to 26 in XHCI kext (credit PMHeart)</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>
+				g/sPD4MDBQAA
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>MatchOS</key>
+				<string>10.14.0</string>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>
+				g/sPkJCQkJCQ
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>USB Port limit patch 10.14.1 18B45d (credits Ricky)</string>
 				<key>Disabled</key>
-				<false/>
+				<true/>
 				<key>Find</key>
 				<data>
 				g/sPD4OPBAAA
@@ -282,44 +288,44 @@
 		<key>BooterConfig</key>
 		<string>0x28</string>
 		<key>CsrActiveConfig</key>
-		<string>0x067</string>
+		<string>0x69</string>
 		<key>MLB</key>
-		<string>C02VXRZWJ1GJASDF</string>
+		<string>C02725404J9JG36JA</string>
 		<key>ROM</key>
 		<string>UseMacAddr0</string>
 	</dict>
 	<key>SMBIOS</key>
 	<dict>
 		<key>BiosReleaseDate</key>
-		<string>09/28/2018</string>
+		<string>12/08/2017</string>
 		<key>BiosVendor</key>
 		<string>Apple Inc.</string>
 		<key>BiosVersion</key>
-		<string>IM183.88Z.F000.B00.1809280842</string>
+		<string>IMP11.88Z.0064.B30.1712081714</string>
 		<key>Board-ID</key>
-		<string>Mac-BE088AF8C5EB4FA2</string>
+		<string>Mac-7BA5B2D9E42DDD94</string>
 		<key>BoardManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>BoardSerialNumber</key>
-		<string>C02741101QXJ0PG1H</string>
+		<string>C02725404J9JG36JA</string>
 		<key>BoardType</key>
 		<integer>10</integer>
 		<key>BoardVersion</key>
 		<string>1.0</string>
 		<key>ChassisAssetTag</key>
-		<string>iMac-Aluminum</string>
+		<string>iMacPro-Aluminum</string>
 		<key>ChassisManufacturer</key>
 		<string>Apple Inc.</string>
 		<key>ChassisType</key>
 		<string>0x09</string>
 		<key>EfiVersion</key>
-		<string>166.0.0.0.0</string>
+		<string>220.240.2.0.0</string>
 		<key>Family</key>
-		<string>iMac</string>
+		<string>iMac Pro</string>
 		<key>FirmwareFeatures</key>
-		<string>0xFC0FE137</string>
+		<string>0xFD8FF53F</string>
 		<key>FirmwareFeaturesMask</key>
-		<string>0xFF1FFF3F</string>
+		<string>0xFF9FFF3F</string>
 		<key>LocationInChassis</key>
 		<string>Part Component</string>
 		<key>Manufacturer</key>
@@ -327,13 +333,13 @@
 		<key>Mobile</key>
 		<false/>
 		<key>PlatformFeature</key>
-		<string>0x00</string>
+		<string>0xFFFF</string>
 		<key>ProductName</key>
-		<string>iMac18,3</string>
+		<string>iMacPro1,1</string>
 		<key>SerialNumber</key>
-		<string>C02VJVZUJ1GJ</string>
+		<string>C02TWBY9HX87</string>
 		<key>SmUUID</key>
-		<string>D5CFF396-B09F-4C2E-8615-208E031F34AE</string>
+		<string>E2A9D0ED-BEF3-4A58-B632-230E21CB3E4C</string>
 		<key>Version</key>
 		<string>1.0</string>
 	</dict>

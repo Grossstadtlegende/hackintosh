@@ -120,7 +120,9 @@
 	<key>Boot</key>
 	<dict>
 		<key>Arguments</key>
-		<string>keepsyms=1 dart=0 debug=0x100 -v shikigva=40</string>
+		<string>keepsyms=1 dart=0 debug=0x100 -v</string>
+		<key>DefaultLoader</key>
+		<string>BOOTX64.efi</string>
 		<key>DefaultVolume</key>
 		<string>LastBootedVolume</string>
 		<key>Timeout</key>
@@ -151,11 +153,19 @@
 		<array>
 			<string>recovery</string>
 			<string>preboot</string>
-			<string>Windows</string>
-			<string>\EFI\BOOT\BOOT64.EFI</string>
+			<string>1E832AA3-8E43-452F-8E68-F18F82181647</string>
+			<string>BF87754F-1C22-4C2B-A394-221EE7B09DDF</string>
+			<string>CAFA737B-F494-4FCB-A321-57F8F13DA61D</string>
 		</array>
 		<key>Scan</key>
-		<true/>
+		<dict>
+			<key>Entries</key>
+			<true/>
+			<key>Linux</key>
+			<false/>
+			<key>Tool</key>
+			<false/>
+		</dict>
 		<key>ScreenResolution</key>
 		<string>2560x2048</string>
 		<key>Theme</key>
